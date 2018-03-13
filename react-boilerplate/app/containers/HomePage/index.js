@@ -16,12 +16,21 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectHomePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import {selectNewsData} from './selectors'
+import {selectNewsData} from './selectors';
+import {newsApiRequest} from './actions';
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
   componentWillMount(){
-    console.log(`news : ${this.props.newsData}`);
+    this.props.newsRequest();
+    this.getArticle();
+  }
+
+  getArticle = () => {
+    const articles = [...this.props.newsData];
+    articles.forEach(function(element) {
+     console.log(element.title);
+    });
   }
   
   render() {
@@ -31,6 +40,8 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
           <title>HomePage</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
+        <ul>
+        </ul>
       </div>
     );
   }
@@ -48,6 +59,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    newsRequest : () => dispatch(newsApiRequest())
   };
 }
 
