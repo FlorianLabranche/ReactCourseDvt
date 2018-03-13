@@ -19,9 +19,18 @@ const makeSelectLoginPage = () => createSelector(
   (substate) => substate.toJS()
 );
 
+const selectUser = (state) => state.get('user');
+const selectUserData = () => createSelector(
+  selectUser,
+  (substate) => ({
+    email: substate.get('email'),
+    password: substate.get('password')
+    })
+);
 
 
 export default makeSelectLoginPage;
 export {
   selectLoginPageDomain,
+  selectUserData,
 };

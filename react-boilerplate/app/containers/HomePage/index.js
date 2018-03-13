@@ -18,19 +18,32 @@ import reducer from './reducer';
 import saga from './saga';
 import {selectNewsData} from './selectors';
 import {newsApiRequest} from './actions';
+import ItemNews from 'components/ItemNews';
+
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+  ArticlesList(){
+    const articles = [...this.props.newsData];
+    console.log(articles);
+    const listItems = articles.map((item,index) =>
+      <ItemNews key={index} title={item.title} desc={item.description} img={item.urlToImage}/>
+    );
+    return <div>{listItems}</div>
+  }
   
   componentWillMount(){
     this.props.newsRequest();
-    this.getArticle();
   }
 
+<<<<<<< HEAD
   getArticle = () => {
     const articles = [...this.props.newsData];
     articles.forEach(function(element) {
     });
   }
+=======
+>>>>>>> c94b1e809a43bbaebe65d3a03f7f0636cdfd9785
   
   render() {
     return (
@@ -39,8 +52,7 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
           <title>HomePage</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
-        <ul>
-        </ul>
+          {this.ArticlesList()}
       </div>
     );
   }
