@@ -37,9 +37,7 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
           <style>{`
             body > div,
             body > div > div,
-            body > div > div > div,
-            body > div > div > div > div,
-            body > div > div > div > div > div.login-form {
+            body > div > div > div.login-form {
               height: 100%;
             }
           `}</style>

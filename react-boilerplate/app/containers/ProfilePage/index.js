@@ -19,6 +19,7 @@ import saga from './saga';
 
 export class ProfilePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    console.log(mapStateToProps.name)
     return (
       <div>
         <Helmet>
@@ -36,6 +37,7 @@ ProfilePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   profilepage: makeSelectProfilePage(),
+  name: selectUserName()
 });
 
 function mapDispatchToProps(dispatch) {

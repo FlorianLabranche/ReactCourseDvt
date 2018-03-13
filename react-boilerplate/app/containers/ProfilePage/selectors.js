@@ -6,8 +6,19 @@ import { createSelector } from 'reselect';
 const selectProfilePageDomain = (state) => state.get('profilePage');
 
 /**
+ * Direct selector to the globalUser state domain
+ */
+const selectProfileUserDomain = (state) => state.get('user');
+
+/**
  * Other specific selectors
  */
+
+const selectUserName = () => createSelector(
+  selectProfileUserDomain,
+  (substate) => substate.toJS(),
+  (name) => ({ name: name })
+);
 
 
 /**
