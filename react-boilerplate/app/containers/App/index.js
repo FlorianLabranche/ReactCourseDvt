@@ -28,7 +28,6 @@ export default function App() {
         <CustomRoute path="/HomePage" component={HomePage} withHeader />
         <CustomRoute path="/ProfilePage" component={ProfilePage} withHeader />
         <CustomRoute path="/" component={NotFoundPage} withHeader />
-
       </Switch>
     </div>
   );

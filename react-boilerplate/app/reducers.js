@@ -39,7 +39,12 @@ function routeReducer(state = routeInitialState, action) {
 
 
 const initialState = fromJS({
-  userdata: null,
+  name: null,
+  location: null, 
+  email: null,
+  phone: null,
+  password: null,
+  picture: null,
 });
 
 function generateUserReducer(state = initialState, action) {
@@ -47,7 +52,12 @@ function generateUserReducer(state = initialState, action) {
     case GENERATE_USER_REQUEST:
       return state;
     case GENERATE_USER_RESPONSE:
-      return state.set("userdata", action.res);
+      return state.set("name", action.res.results[0].name)
+                  .set("location",action.res.results[0].location)
+                  .set("email", action.res.results[0].email)
+                  .set("phone", action.res.results[0].phone)
+                  .set("password", action.res.results[0].login.password)
+                  .set("picture", action.res.results[0].picture.large);
     default:
       return state;
   }
