@@ -12,17 +12,23 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+import CustomRoute from 'components/CustomRoute'
 
+import LoginPage from 'containers/LoginPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
+import ProfilePage from 'containers/ProfilePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 export default function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
+        <CustomRoute exact path="/" component={LoginPage} withHeader={false} />  
+        <CustomRoute path="/HomePage" component={HomePage} withHeader />
+        <CustomRoute path="/ProfilePage" component={ProfilePage} withHeader />
+        <CustomRoute path="/" component={NotFoundPage} withHeader />
+
       </Switch>
     </div>
   );
