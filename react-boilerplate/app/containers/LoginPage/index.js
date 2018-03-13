@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -74,7 +75,12 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
                     type='password'
                     value= {this.props.userData.password || ""}
                   />
+<<<<<<< HEAD
+
+                  <Button as={Link} to='HomePage' color='teal' fluid size='large' >Login</Button>
+=======
                   <Button color='teal' fluid size='large' onClick={this.login}>Login</Button>
+>>>>>>> c94b1e809a43bbaebe65d3a03f7f0636cdfd9785
                 </Segment>
               </Form>
               <Message>

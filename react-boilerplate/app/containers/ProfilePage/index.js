@@ -13,9 +13,11 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectProfilePage from './selectors';
+import makeSelectProfilePage, {selectUserBasics} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+
+import CustomCard from 'components/CustomCard'
 
 export class ProfilePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -25,6 +27,7 @@ export class ProfilePage extends React.Component { // eslint-disable-line react/
           <title>ProfilePage</title>
           <meta name="description" content="Description of ProfilePage" />
         </Helmet>
+        <CustomCard user={this.props.userBasics}/>
       </div>
     );
   }
@@ -36,6 +39,7 @@ ProfilePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   profilepage: makeSelectProfilePage(),
+  userBasics: selectUserBasics()
 });
 
 function mapDispatchToProps(dispatch) {

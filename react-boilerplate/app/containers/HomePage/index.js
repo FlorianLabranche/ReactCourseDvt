@@ -35,6 +35,14 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
     this.props.newsRequest();
   }
 
+<<<<<<< HEAD
+  getArticle = () => {
+    const articles = [...this.props.newsData];
+    articles.forEach(function(element) {
+    });
+  }
+=======
+>>>>>>> c94b1e809a43bbaebe65d3a03f7f0636cdfd9785
   
   render() {
     return (
