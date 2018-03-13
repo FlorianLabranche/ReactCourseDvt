@@ -5,7 +5,7 @@
 import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
-
+import {GENERATE_USER_REQUEST, GENERATE_USER_RESPONSE} from 'containers/LoginPage/constants'
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
 /*
@@ -20,6 +20,7 @@ import languageProviderReducer from 'containers/LanguageProvider/reducer';
 const routeInitialState = fromJS({
   location: null,
 });
+
 
 /**
  * Merge route into the global application state
@@ -36,6 +37,22 @@ function routeReducer(state = routeInitialState, action) {
   }
 }
 
+
+const initialState = fromJS({
+  userdata: null,
+});
+
+function generateUserReducer(state = initialState, action) {
+  switch (action.type) {
+    case GENERATE_USER_REQUEST:
+      return state;
+    case GENERATE_USER_RESPONSE:
+      return state.set("userdata", action.res);
+    default:
+      return state;
+  }
+}
+
 /**
  * Creates the main reducer with the dynamically injected ones
  */
@@ -43,6 +60,7 @@ export default function createReducer(injectedReducers) {
   return combineReducers({
     route: routeReducer,
     language: languageProviderReducer,
+    user: generateUserReducer,
     ...injectedReducers,
   });
 }
