@@ -5,17 +5,23 @@
 */
 
 import React from 'react';
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import { Container } from 'semantic-ui-react'
+import { height } from 'window-size';
 // import styled from 'styled-components';
 
 
 class CustomRoute extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const {path, component, withHeader } = this.props;
+    const { path, component, withHeader, exact } = this.props;
     return (
       <div>
         {withHeader && <Header />}
-        <Route exact path={path} component={component} />
+        <Container text style={{ marginTop: '7em', minHeight: '100vh' }}>
+          <Route exact={exact} path={path} component={component} />
+        </Container>
         <Footer />
       </div>
     );
