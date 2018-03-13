@@ -1,6 +1,7 @@
-import { take, call, put, select } from 'redux-saga/effects';
+import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 import {NewsApi} from 'api/NewsApi'
 import {newsApiAction} from './actions'
+import {NEWS_API_REQUEST} from './constants' 
 
 // Individual exports for testing
 export function* defaultSaga() {

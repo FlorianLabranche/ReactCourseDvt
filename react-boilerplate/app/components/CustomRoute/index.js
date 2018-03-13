@@ -16,9 +16,6 @@ import { height } from 'window-size';
 class CustomRoute extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const { path, component, withHeader, exact } = this.props;
-    console.log(path)
-    console.log(component)
-    console.log(withHeader)
     return (
       <div>
         {withHeader && <Header />}

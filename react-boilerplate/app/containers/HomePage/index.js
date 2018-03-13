@@ -21,7 +21,7 @@ import {selectNewsData} from './selectors'
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
   componentWillMount(){
-    console.log('home page', this.props.newsData);
+    console.log(`news : ${this.props.newsData}`);
   }
   
   render() {

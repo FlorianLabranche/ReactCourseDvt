@@ -20,9 +20,9 @@ export function newsApiRequest() {
   };
 }
 
-export function newsApiAction(rep) {
+export function newsApiAction(news) {
   return {
-    type: NEWS_API_ACTION,
-    rep
+    type: NEWS_API_RESPONSE,
+    news
   };
 }
