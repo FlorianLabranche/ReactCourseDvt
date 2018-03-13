@@ -14,10 +14,15 @@ const selectProfileUserDomain = (state) => state.get('user');
  * Other specific selectors
  */
 
-const selectUserName = () => createSelector(
+const selectUserBasics = () => createSelector(
   selectProfileUserDomain,
-  (substate) => substate.toJS(),
-  (name) => ({ name: name })
+  selector => selector.toJS().user,
+  (a, b) => ({
+    displayName: b.name.first + ' ' + b.name.last,
+    email: b.email,
+    img: b.picture,
+    phone: b.phone
+  })
 );
 
 
@@ -33,4 +38,5 @@ const makeSelectProfilePage = () => createSelector(
 export default makeSelectProfilePage;
 export {
   selectProfilePageDomain,
+  selectUserBasics
 };

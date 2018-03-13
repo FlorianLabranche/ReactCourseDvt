@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -67,7 +68,7 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
                     type='password'
                   />
 
-                  <Button color='teal' fluid size='large' >Login</Button>
+                  <Button as={Link} to='HomePage' color='teal' fluid size='large' >Login</Button>
                 </Segment>
               </Form>
               <Message>
