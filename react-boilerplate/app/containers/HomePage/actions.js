@@ -13,3 +13,16 @@ export function defaultAction() {
     type: DEFAULT_ACTION,
   };
 }
+
+export function newsApiRequest() {
+  return {
+    type: NEWS_API_REQUEST,
+  };
+}
+
+export function newsApiAction(rep) {
+  return {
+    type: NEWS_API_ACTION,
+    rep
+  };
+}

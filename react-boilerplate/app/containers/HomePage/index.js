@@ -16,8 +16,14 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectHomePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import {selectNewsData} from './selectors'
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  
+  componentWillMount(){
+    console.log('home page', this.props.newsData);
+  }
+  
   render() {
     return (
       <div>
@@ -36,6 +42,7 @@ HomePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   homepage: makeSelectHomePage(),
+  newsData: selectNewsData()
 });
 
 function mapDispatchToProps(dispatch) {
