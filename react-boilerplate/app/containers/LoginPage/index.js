@@ -69,11 +69,11 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
                     type='password'
                   />
 
-                  <Button color='teal' fluid size='large' onClick={this.generateUser}>Login</Button>
+                  <Button color='teal' fluid size='large' >Login</Button>
                 </Segment>
               </Form>
               <Message>
-                New to us? <a href='#'>Sign Up</a>
+                New to us? <a onClick={this.generateUser}>Sign Up</a>
               </Message>
             </Grid.Column>
           </Grid>
