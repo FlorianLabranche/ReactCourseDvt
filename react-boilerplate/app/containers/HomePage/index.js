@@ -25,9 +25,8 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
 
   ArticlesList(){
     const articles = [...this.props.newsData];
-    console.log(articles);
     const listItems = articles.map((item,index) =>
-      <ItemNews key={index} title={item.title} desc={item.description} img={item.urlToImage}/>
+      <ItemNews key={index} title={item.title} desc={item.description} img={item.urlToImage} articleLink= {item.url}/>
     );
     return <div>{listItems}</div>
   }
