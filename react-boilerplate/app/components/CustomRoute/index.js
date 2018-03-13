@@ -8,7 +8,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from 'components/Header'
 import Footer from 'components/Footer'
-import { Container } from 'semantic-ui-react'
+import Container from 'components/StyledContainer'
 import { height } from 'window-size';
 // import styled from 'styled-components';
 
@@ -16,13 +16,10 @@ import { height } from 'window-size';
 class CustomRoute extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const { path, component, withHeader, exact } = this.props;
-    console.log(path)
-    console.log(component)
-    console.log(withHeader)
     return (
       <div>
         {withHeader && <Header />}
-        <Container text style={{ marginTop: '7em', minHeight: '100vh' }}>
+        <Container text>
           <Route exact={exact} path={path} component={component} />
         </Container>
         <Footer />
