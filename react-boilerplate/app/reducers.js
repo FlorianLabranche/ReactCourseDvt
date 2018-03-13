@@ -6,6 +6,7 @@ import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import {GENERATE_USER_REQUEST, GENERATE_USER_RESPONSE} from 'containers/LoginPage/constants'
+import {LOGOUT_ACTION} from 'components/CustomRoute/constants'
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
 /*
@@ -49,6 +50,8 @@ const initialState = fromJS({
 
 function generateUserReducer(state = initialState, action) {
   switch (action.type) {
+    case LOGOUT_ACTION:
+      return initialState;
     case GENERATE_USER_REQUEST:
       return state;
     case GENERATE_USER_RESPONSE:

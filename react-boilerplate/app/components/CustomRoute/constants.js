@@ -1,0 +1,1 @@
+export const LOGOUT_ACTION = 'app/CustomRoute/LOGOUT_ACTION';

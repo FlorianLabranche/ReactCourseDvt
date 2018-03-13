@@ -13,11 +13,6 @@ import logo from './logo.png'
 
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
-  handleItemClick = () => {
-    console.log('logout')
-  }
-
   render() {
     return (
       <Menu fixed='top' inverted>
@@ -32,7 +27,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
           </Menu.Item>
           <Menu.Item as={Link} to='ProfilePage'>Profile</Menu.Item>
           <Menu.Menu position='right'>
-            <Menu.Item name='logout' onClick={this.handleItemClick} />
+            <Menu.Item as={Link} to='/' name='logout' onClick={this.props.handleLogOut} />
           </Menu.Menu>
         </Container>
       </Menu>
