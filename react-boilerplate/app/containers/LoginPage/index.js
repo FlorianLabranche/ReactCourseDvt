@@ -14,13 +14,19 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectLoginPage from './selectors';
+import makeSelectLoginPage, {selectUserData} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import {generateUserRequest} from "./actions"
 
 export class LoginPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   generateUser = () => this.props.getGenerateUser();
+  login = () => {
+    if(this.props.userData.email != null && this.props.userData.password != null)
+    {
+      this.props.history.push("/HomePage");
+    }
+  };
   render() {
     return (
       <div>
@@ -37,9 +43,7 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
           <style>{`
             body > div,
             body > div > div,
-            body > div > div > div,
-            body > div > div > div > div,
-            body > div > div > div > div > div.login-form {
+            body > div > div > div.login-form {
               height: 100%;
             }
           `}</style>
@@ -60,6 +64,7 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
                     icon='user'
                     iconPosition='left'
                     placeholder='E-mail address'
+                    value= {this.props.userData.email || ""}
                   />
                   <Form.Input
                     fluid
@@ -67,9 +72,9 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
                     iconPosition='left'
                     placeholder='Password'
                     type='password'
+                    value= {this.props.userData.password || ""}
                   />
-
-                  <Button color='teal' fluid size='large' >Login</Button>
+                  <Button color='teal' fluid size='large' onClick={this.login}>Login</Button>
                 </Segment>
               </Form>
               <Message>
@@ -89,6 +94,7 @@ LoginPage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   loginpage: makeSelectLoginPage(),
+  userData: selectUserData(),
 });
 
 function mapDispatchToProps(dispatch) {
