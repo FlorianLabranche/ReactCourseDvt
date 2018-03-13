@@ -5,7 +5,7 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  DEFAULT_ACTION,NEWS_API_REQUEST,NEWS_API_RESPONSE
 } from './constants';
 
 export function defaultAction() {
@@ -20,7 +20,7 @@ export function newsApiRequest() {
   };
 }
 
-export function newsApiAction(news) {
+export function newsApiResponse(news) {
   return {
     type: NEWS_API_RESPONSE,
     news
