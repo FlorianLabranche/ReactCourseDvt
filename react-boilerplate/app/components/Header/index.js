@@ -23,7 +23,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
               src={logo}
               style={{ marginRight: '1.5em' }}
             />
-            Cool Project
+            Cool Beaver
           </Menu.Item>
           <Menu.Item as={Link} to='ProfilePage'>Profile</Menu.Item>
           <Menu.Menu position='right'>

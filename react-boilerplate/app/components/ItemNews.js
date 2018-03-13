@@ -7,7 +7,7 @@ const ItemNews = props => (
       <Item.Image size='tiny' src={props.img} />
 
       <Item.Content>
-        <Item.Header as='a'>{props.title}</Item.Header>
+        <Item.Header as='a' href={props.articleLink}>{props.title}</Item.Header>
         <Item.Extra>{props.desc}</Item.Extra>
       </Item.Content>
     </Item>
